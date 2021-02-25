@@ -2,7 +2,7 @@
   <img alt='Vue logo' src='./assets/logo.png'>
   <HelloWorld msg='Welcome to Your Vue.js + TypeScript App'/>
   <Couter />
-  <Teste />
+  <Teste msg="Esta é uma propriedade vue"/>
 </template>
 
 <script lang="ts">

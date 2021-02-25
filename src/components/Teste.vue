@@ -1,4 +1,6 @@
 <template>
+    <h1>{{ msg }}</h1>
+    <div>Computed: {{ hello }}</div>
     <div class="t" v-for="(pessoa, index) in list" v-bind:key="index">
         <div v-bind="idade" v-bind:id="index">{{ pessoa.nome }} | {{ pessoa.idade }}</div>
     </div>
@@ -30,6 +32,9 @@ const arr: Array<Myobject> = [
 
 export default defineComponent({
   name: 'Teste',
+  props: {
+    msg: String,
+  },
   data() {
     return {
       list: arr,
@@ -37,6 +42,11 @@ export default defineComponent({
       person: '',
       val: '',
     };
+  },
+  computed: {
+    hello(): string {
+      return 'Hello';
+    },
   },
   methods: {
     showMessage(msg: string): void {
@@ -46,7 +56,7 @@ export default defineComponent({
       const pessoa = person.split(' ');
       this.list.push({ nome: pessoa[0], idade: Number(pessoa[1]) });
     },
-    onSubmit() {
+    onSubmit(): void {
       if (this.val !== '') {
         alert('formulário enviado');
         return;
